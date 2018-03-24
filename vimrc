@@ -30,6 +30,7 @@ Plugin 'VundleVim/Vundle.vim' " let vundle manage vundle
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
