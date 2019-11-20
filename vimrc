@@ -52,5 +52,6 @@ filetype indent on
 
 " colors
 " ----------------------------------------------------------
-colorscheme default
+colorscheme ir_black
 highlight Visual cterm=NONE ctermfg=white ctermbg=darkblue
+highlight CursorLine ctermfg=10 " netrw highlight color
