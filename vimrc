@@ -18,44 +18,43 @@ vnoremap <C-c> <Esc>
 noremap <leader>ff :GFiles<CR>
 noremap <leader>fb :Buffers<CR>
 
-" vundle
+" vim-plog
 " ----------------------------------------------------------
-" https://github.com/VundleVim/Vundle.vim
-" run :PluginInstall or vim +PluginInstall +qall
+" https://github.com/junegunn/vim-plug
+" run :PlugInstall or vim +PlugInstall +qall
 
-filetype off " vundle requirement
+" filetype off " plug requirement
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim' " let vundle manage vundle
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
-Plugin 'tpope/vim-vinegar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-
-Plugin 'posva/vim-vue'
+Plug 'posva/vim-vue'
 let g:vue_pre_processors = ['typescript', 'scss']
 
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
+let g:go_version_warning = 0
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
-Plugin 'leafgarland/typescript-vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dense-analysis/ale'
-Plugin 'iberianpig/tig-explorer.vim'
-Plugin 'junegunn/goyo.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'iberianpig/tig-explorer.vim'
+Plug 'junegunn/goyo.vim'
 
 let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_linters = {'go': ['gopls']}
 let g:ale_fix_on_save = 1
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " search
