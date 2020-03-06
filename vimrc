@@ -41,6 +41,8 @@ let g:go_version_warning = 0
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -56,6 +58,8 @@ let g:ale_fix_on_save = 1
 
 call plug#end()
 filetype plugin indent on
+
+:source ~/.vim/config/coc.vim
 
 " search
 " ----------------------------------------------------------
