@@ -49,6 +49,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'dense-analysis/ale'
 Plugin 'iberianpig/tig-explorer.vim'
+Plugin 'junegunn/goyo.vim'
 
 let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_linters = {'go': ['gopls']}
