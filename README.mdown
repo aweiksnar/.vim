@@ -2,14 +2,6 @@
 
 ### setup
 
-install [vundle](https://github.com/VundleVim/Vundle.vim)
-
 ```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-
-load plugins
-
-```
-vim +PluginInstall +qall
+git clone git@github.com:aweiksnar/.vim.git ~/.vim
 ```

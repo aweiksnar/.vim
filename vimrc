@@ -12,7 +12,6 @@ set backspace=indent,eol,start " allow backspace in insert mode
 set noswapfile
 
 function! s:get_visual_selection()
-    " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
     let lines = getline(line_start, line_end)
@@ -37,52 +36,27 @@ noremap <leader>gg <Esc>:Ggrep <C-R><C-R>=<SID>get_visual_selection()<CR>
 " ----------------------------------------------------------
 " https://github.com/junegunn/vim-plug
 " run :PlugInstall or vim +PlugInstall +qall
-
 " filetype off " plug requirement
 
-" set rtp+=~/.vim/bundle/Vundle.vim
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-
-Plug 'posva/vim-vue'
-let g:vue_pre_processors = ['typescript', 'scss']
-
-Plug 'fatih/vim-go'
-let g:go_version_warning = 0
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_def_mapping_enabled = 0 " prefer handling this by coc.vim
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'leafgarland/typescript-vim'
-Plug 'jparise/vim-graphql'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'dense-analysis/ale'
-Plug 'iberianpig/tig-explorer.vim'
-Plug 'junegunn/goyo.vim'
-
-let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
-\}
-let g:ale_linters = {'go': ['gopls'], 'php': []}
-let g:ale_fix_on_save = 1
 
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 
 call plug#end()
 filetype plugin indent on
-
-:source ~/.vim/config/coc.vim
 
 " search
 " ----------------------------------------------------------
@@ -104,13 +78,6 @@ set shiftwidth=2
 filetype plugin on
 filetype indent on
 
-" colors
-" ----------------------------------------------------------
-colorscheme ir_black
-highlight Visual cterm=NONE ctermfg=white ctermbg=darkblue
-highlight CursorLine ctermfg=10 " netrw highlight color
-
-highlight clear SignColumn " remove gutter color
 
 syntax off " no syntax highlighting
 
