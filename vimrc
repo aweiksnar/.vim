@@ -78,6 +78,7 @@ set shiftwidth=2
 filetype plugin on
 filetype indent on
 
+set mouse=
 
 syntax off " no syntax highlighting
 
